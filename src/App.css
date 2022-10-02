@@ -1,0 +1,346 @@
+:root{
+  --blue : rgb(29, 158, 197);
+  --light-blue : rgb(29, 158, 197, 0.5);
+  --black: rgb(0, 0, 0);
+  --white: rgb(255, 255, 255);
+  --grey: rgb(245, 248, 250,0.1);
+  --green: rgb(32, 216, 87);
+  --red: rgb(216, 32, 32);
+}
+
+
+body{
+  background-color: var(--black);
+}
+
+.bkgr{
+  background-color: var(--black);
+}
+.bkgr:nth-child(2){
+  border-left: 1px solid var(--black);
+  border-right: 1px solid var(--black);
+  padding: 0px;
+  margin: 0px;
+}
+
+
+.list-group-item{
+  padding: 11px;
+  border-radius: 30px;
+}
+
+.list-group-item span{
+  padding: 11px;
+  border-radius: 30px;
+  transition: background-color 0.2s;
+  color: var(--white);
+}
+
+.list-group-item span:hover{
+  background-color: var(--grey);
+
+}
+
+.card{
+  border-radius: 0px;
+  border: 1px solid var(--grey);
+  cursor: pointer;
+  padding-left: 16px;
+  padding-right: 16px;
+  background-color: var(--black);
+  color: var(--white);
+  transition: background-color 0.3s;
+}
+
+.border-rad{
+  border-radius: 50px;
+}
+
+.card:hover{
+  background-color: rgba(127, 127, 128, 0.1);
+  transition: background-color 0.3s;
+}
+
+/* same time hover start */
+
+.interection{
+  padding:5px 16px;
+}
+
+.cul{
+  padding-left: 5px;
+  padding-right: 13px;
+  transition: background-color 0.3s;
+}
+
+.icon{
+  padding: 5px;
+  border-radius: 50px;
+  background-color: rgb(29 ,161 ,242,0);
+  transition: background-color 0.3s;
+}
+
+.inter:hover .icon{
+  background-color: rgb(29 ,161 ,242,0.2);
+  cursor: pointer;
+  transition: background-color 0.3s;
+  color: var(--blue);
+}
+
+.inter:hover .cul{
+  color: var(--blue);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.inter:nth-child(2):hover .icon{
+  background-color: rgb(32, 216, 87,0.2);
+  cursor: pointer;
+  transition: background-color 0.3s;
+  color: var(--green);
+}
+
+.inter:nth-child(2):hover .cul{
+  color: var(--green);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.inter:nth-child(3):hover .icon{
+  background-color: rgba(216, 32, 32, 0.2);
+  cursor: pointer;
+  transition: background-color 0.3s;
+  color: var(--red);
+}
+
+.inter:nth-child(3):hover .cul{
+  color: var(--red);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* same time hover end */
+
+
+.post-tweet{
+  color: var(--white);
+  padding: 20px;
+  border: 1px solid var(--grey);
+}
+
+.tweet-home{
+  font-size: 20px;
+  padding: 4px;
+}
+
+.tweet-body{
+  color: var(--white);
+  padding: 4px;
+}
+
+.tweet-body div{
+  display: inline-block;
+}
+
+.tweet-body div:nth-child(2){
+  width: 85%;
+  margin-left: 10px;
+}
+
+.tweet-body div:nth-child(2) input{
+  background-color: transparent;
+  border: none;
+  outline: 1px solid transparent;
+  color: var(--white);
+  font-size: larger;
+  width: 100%;
+}
+
+.tweet-body div:nth-child(2) div{
+  color: var(--blue);
+}
+
+.tweet-body div:nth-child(2) div span{
+  color: var(--blue);
+  padding-left:10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-right:10px;
+  background-color: transparent;
+  border-radius: 50px;
+  font-size: 20px;
+  transition: background-color 0.3s;
+}
+
+.tweet-body div:nth-child(2) div span:hover{
+  background-color: rgb(29 ,161 ,242,0.2);
+  cursor: pointer;
+}
+
+.trends{
+  width: 55%;
+  background-color: rgb(	245, 248, 250,0.1);
+  color: var(--white);
+}
+
+.trends h5{
+  padding: 10px;
+}
+
+.trend{
+  padding: 10px;
+  color: var(--white);
+  transition: background-color 0.3s;
+}
+
+.trend:hover{
+  background-color: rgb(245, 248, 250,0.11);
+  cursor: pointer;
+}
+
+
+.follows{
+  width: 55%;
+  background-color: rgb(	245, 248, 250,0.1);
+  color: white;
+}
+
+.follows h5{
+  padding: 10px;
+}
+
+.follow{
+  padding: 10px;
+  transition: background-color 0.3s;
+}
+
+.follow:hover{
+  background-color: rgb(245, 248, 250,0.11);
+  cursor: pointer;
+}
+
+.twit-btn{
+  background-color: var(--blue);
+  border-radius: 50px;
+  color: var(--white);
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.twit-btn:hover{
+  background-color: rgb(29, 158, 197,0.9);
+  color: var(--white);
+}
+
+.card-title{
+  color: var(--white);
+  text-decoration: none;
+}
+
+.card-title:hover{
+  text-decoration: underline;
+  color: var(--white);
+}
+
+.search-bar{
+  width: 55%;
+  border-radius: 50px;
+  border: none;
+  outline: 1px solid transparent;
+  padding: 10px;
+  background-color: var(--grey);
+  color: var(--white);
+}
+
+.search-bar:focus{
+  outline: 1px solid var(--blue);
+}
+
+.tweet-button{
+  color: var(--white);
+  border-radius: 50px;
+  background-color: var(--blue);
+  border: none;
+  outline: none;
+}
+
+.tweet-button:hover{
+  background-color: var(--blue);
+}
+
+.tweet-button:focus{
+  background-color: var(--blue);
+}
+
+.row .col-auto{
+  width: 70px;
+}
+
+.col-auto img{
+  width: 50px;
+  height: 50px;
+  margin: 10px;
+  margin-top: 1rem;
+}
+
+.card-body span:nth-child(1){
+  margin-right: 3px;
+}
+
+.a-decor{
+  text-decoration: none;
+  color: black;
+}
+
+.post-info{
+  padding: 2px 6px 2px 6px;
+  border-radius: 50px;
+}
+
+.post-info:hover{
+  background-color: var(--light-blue);
+
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: var(--black);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(255, 255, 255, 0.2);
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content p{
+  padding: 3px;
+  color: var(--white);
+  transition: background-color 0.2s;
+  padding: 3px;
+  font-size: 17px;
+}
+
+.dropdown-content p:nth-child(2){
+  padding: 3px;
+  color: var(--red);
+}
+
+.dropdown-content p:hover{
+  background-color: rgba(127, 127, 128, 0.1);
+  cursor: pointer;
+}
+
+.dropdown-content p i{
+  margin: 5px;
+}
+
