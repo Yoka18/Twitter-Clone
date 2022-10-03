@@ -1,0 +1,37 @@
+{
+  "tweets": [
+    {
+      "id": 2,
+      "username": "Test2",
+      "desc": "test 1 2 3 deneme test deneme işte bu denemedir dikkatinize",
+      "image": "https://i.redd.it/oq8e1utnl0651.jpg",
+      "comments": 22,
+      "retweet": 150,
+      "like": 20,
+      "share": 15,
+      "time": 95
+    },
+    {
+      "username": "Test",
+      "desc": "utkay fırat çok iyi bir yazılımcı",
+      "image": "https://utkayfirat.com/assets/img/apps/blog-website-30-mayis-2022.jpg",
+      "time": "0:18",
+      "like": 0,
+      "share": 0,
+      "comments": 0,
+      "retweet": 0,
+      "id": 3
+    },
+    {
+      "username": "Test",
+      "desc": "utkay fırat çok iyi bir yazılımcı",
+      "image": "https://utkayfirat.com/assets/img/apps/blog-website-30-mayis-2022.jpg",
+      "time": "0:18",
+      "like": 0,
+      "share": 0,
+      "comments": 0,
+      "retweet": 0,
+      "id": 4
+    }
+  ]
+}

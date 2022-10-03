@@ -1,18 +1,23 @@
+import axios from 'axios';
 import React, { Component } from 'react'
 import TwitterConsumer from '../context';
 
 export default class Tweet extends Component {
 
 
-    onDeleteTweet = (dispatch,e) =>{
+    onDeleteTweet = async (dispatch,e) =>{
         const {id} = this.props;
+
+        await axios.delete(`http://localhost:3001/tweets/${id}`)
+
+
         dispatch({type: "DELETE_TWEET",payload:id});
     }
 
 
   render() {
 
-    const {id,username,desc,image,comments,retweet,like,share,time} = this.props;
+    const {username,desc,image,comments,retweet,like,share,time} = this.props;
 
     return (
         <TwitterConsumer>
