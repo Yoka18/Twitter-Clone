@@ -13,7 +13,7 @@
     },
     {
       "username": "Test",
-      "desc": "utkay fırat çok iyi bir yazılımcı",
+      "desc": "utkay firat çok iyi bir yazilimci",
       "image": "https://utkayfirat.com/assets/img/apps/blog-website-30-mayis-2022.jpg",
       "time": "0:18",
       "like": 0,
@@ -24,7 +24,7 @@
     },
     {
       "username": "Test",
-      "desc": "utkay fırat çok iyi bir yazılımcı",
+      "desc": "utkay firat çok iyi bir yazilimci",
       "image": "https://utkayfirat.com/assets/img/apps/blog-website-30-mayis-2022.jpg",
       "time": "0:18",
       "like": 0,
@@ -33,5 +33,37 @@
       "retweet": 0,
       "id": 4
     }
+  ],
+  
+  "users":[
+    {
+      "username": "username",
+      "password": "123456",
+      "name": "test name",
+      "email": "test@mail",
+      "id": 1
+    },
+    {
+      "username": "test",
+      "password": "test",
+      "name": "test test",
+      "email": "test@mail",
+      "id": 2
+    },
+    {
+      "username": "example",
+      "password": "a",
+      "name": "example name",
+      "email": "example@mail",
+      "id": 3
+    },
+    {
+      "username": "a",
+      "password": "a",
+      "name": "example name",
+      "email": "example@mail",
+      "id": 4
+    }
   ]
+  
 }

@@ -347,3 +347,228 @@ body{
 .a{
   display: none;
 }
+
+
+
+
+
+.test{
+  padding: 10px;
+  border-radius: 20px;
+  background-color: brown;
+  width: 300px;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: -1;
+}
+
+.z-index-0{
+  z-index: 0;
+}
+
+.z-index-1{
+  z-index: 1;
+}
+
+.logo{
+  width:100%;
+  height:auto;
+  padding: 25px;
+}
+
+.twitter-logo{
+  width: 60px;
+  height: 60px;
+}
+
+.login-screen-2{
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.login-screen-2 p{
+  font-size: 50px;
+}
+
+
+.login-screen-3 p{
+  font-size: 30px;
+}
+
+.login-screen-4{
+  margin-top: 50px;
+  margin-bottom: 50px;
+  width: 50%;
+  background-color: transparent;
+}
+
+.login-screen-4 i{
+  padding-right: 5px;
+  font-size: 17px;
+}
+
+.login-screen-4 button{
+  background-color: var(--white);
+  color: var(--grey-full);
+  font-size: 15px;
+  width: 100%;
+  border: none;
+  border-radius: 50px;
+  padding: 5px 20px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.login-screen-4 button:focus{
+  outline: none;
+  border: none;
+  background-color: var(--white);
+  color: var(--grey-full);
+}
+
+.login-screen-4 button:nth-child(4){
+  background-color: var(--blue);
+  color: var(--grey-full);
+  font-size: 15px;
+  width: 100%;
+  border: none;
+  border-radius: 50px;
+  padding: 5px 20px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.login-screen-4 button:nth-child(4):hover{
+  background-color: rgb(29 ,161 ,242,0.9);
+  color: var(--grey-full);
+}
+
+.login-screen-4 button:hover{
+  background-color: rgba(255, 255, 255, 0.95);
+  color: var(--grey-full);
+}
+
+.hr-line{
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: var(--white);
+}
+
+.hr-line::before,
+.hr-line::after{
+  content: "";
+  border: 1px solid var(--grey-full);
+  flex: 1;
+}
+
+.hr-line:not(:empty)::before {
+  margin-right: 5px;
+}
+
+.hr-line:not(:empty)::after {
+  margin-left: 5px;
+}
+
+.log-terms-policy{
+  color: var(--white);
+  font-size: 10px;
+}
+
+.login-button{
+  border: 1px solid var(--white);
+  background-color: black;
+  width: 100%;
+  border-radius: 50px;
+  color: var(--blue);
+}
+.login-button:hover{
+  background-color: rgba(29 ,161 ,242,0.1);
+  color: var(--blue);
+  border: 1px solid var(--white);
+}
+
+.modal{
+  background-color: rgba(0, 0, 0, 0.3);
+  display: none;
+}
+
+.modal-header{
+  border: none;
+}
+
+.modal-header i{
+  padding: 8px 10px 5px 10px;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.modal-header i:hover{
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.login-modal{
+  text-align: center;
+}
+
+.modal-content{
+  background-color: var(--black);
+  color: var(--white);
+}
+
+.pass-username{
+  width: 60%;
+  padding: 10px;
+  font-size: 17px;
+  border: 2px solid var(--grey-full);
+  outline: none;
+  border-radius: 5px;
+  background-color: transparent;
+  color: white;
+}
+
+.pass-username:focus{
+  border: 2px solid var(--blue);
+}
+
+.modal-login-button{
+  width: 60%;
+  border-radius: 50px;
+  background-color: var(--blue);
+}
+
+.modal-login-button:hover{
+  background-color: rgb(29, 158, 197,0.9);
+}
+
+.login-background{
+  background-image:url(/src/images/twitter-log-screen.png); 
+  overflow: hidden; 
+  background-repeat: none; 
+  background-size: cover;
+  min-height: 920px;
+}
+
+.log-footer{
+  background-color: var(--black);
+  color: var(--grey);
+  padding: 10px;
+  text-align: center;
+}
+
+.log-footer ul li{
+  display: inline-block;
+}
+
+.log-footer ul li a{
+  color: var(--grey-full);
+  text-decoration: none;
+  padding: 0 10px;
+  font-size: 13px;
+}
+
+.log-footer ul li a:hover{
+  text-decoration: underline;
+}

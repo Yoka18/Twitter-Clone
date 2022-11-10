@@ -32,8 +32,10 @@ export class TwitterProvider extends Component {
 
       componentDidMount = async () => { 
         const tweets =  await axios.get("http://localhost:3001/tweets");
+        const users =  await axios.get("http://localhost:3001/users");
         this.setState({
-          tweets: tweets.data
+          tweets: tweets.data,
+          users: users.data
         })
        }
 

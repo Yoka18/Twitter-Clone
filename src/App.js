@@ -1,21 +1,39 @@
 import React, { Component } from 'react';
 import './App.css';
-import Home from "./Components/Home";
-import Trends from "./Components/Trends";
-import Sidebar from './Components/Sidebar';
+import Home from './Components/Home';
 
+
+import {createBrowserRouter,RouterProvider} from "react-router-dom";
+
+import Login from './Components/Login/Login';
+import Test from './Components/Login/Test';
+
+
+
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home/>
+  },
+  {
+    path: "login",
+    element: <Login/>
+  },
+  {
+    path: "test",
+    element: <Test/>
+    
+  },
+
+])
 
 
 class App extends Component {
 
-  render() {
+  render() { 
     return (
-      <div className="row align-items-start">
-      <Sidebar/>
-      <Home/>
-      <Trends/>
-      
-    </div>
+      <RouterProvider router={ router } />
     )
   }
 }
