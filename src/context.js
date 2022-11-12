@@ -16,6 +16,11 @@ const reducer = (state,action) => {
         ...state,
         tweets: [...state.tweets,action.payload]
       }
+    case "ADD_USER":
+      return{
+        ...state,
+        users: [...state.users,action.payload]
+      }
   }
 }
 
@@ -25,6 +30,7 @@ export class TwitterProvider extends Component {
 
     state = {
         tweets:[],
+        users:[],
         dispatch:action => {
           this.setState(state => reducer(state,action))
         }

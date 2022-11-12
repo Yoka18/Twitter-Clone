@@ -1,6 +1,8 @@
+import axios from 'axios';
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import TwitterConsumer from '../../context';
+
 
 
 
@@ -11,18 +13,27 @@ export default function Login() {
     
 
     
-
+    // login
     const navigate = useNavigate();
     const [visible, setVisible] = useState();
     const [email, setEmail] = useState();
     const [password, setPass] = useState();
     const [LogCheck, setLogCheck] = useState();
+
+    //register
+    const [register, setRegister] = useState();
+    const [RegName, setRegName] = useState();
+    const [RegEmail, setRegEmail] = useState();
+    const [RegPass, setRegPass] = useState();
+    const [RegCheck, setRegCheck] = useState(false);
+
+
     
-    function onLogin(users,e){
+    const onLogin = (users,e) => {
         e.preventDefault();
 
         users.map((user)=>{
-            if(user.username == email && user.password == password){
+            if(user.username === email && user.password === password){
                 navigate("/")
             }
             else{
@@ -30,22 +41,38 @@ export default function Login() {
             }
         })
     }
-    
+
+    const onRegister = (dispatch,e) => {
+        e.preventDefault();
+        if(RegName && RegEmail && RegPass != null){
+            const data = {
+                username: RegName,
+                email: RegEmail,
+                password: RegPass
+            }
+            const url = 'http://localhost:3001/users';
+            const resp = axios.post(url, data);
+            dispatch({type:"ADD_USER",payload:resp.data});
+            navigate("/");
+        }else{
+            setRegCheck(!RegCheck)
+        }
+    }
 
 
   return (
     <TwitterConsumer>
         {
             value => {
-                const {users} = value;
+                const {users,dispatch} = value;
                 return (
                     <div className="row align-items-start z-index-0">
         <div className="col-md-7 login-background position-relative">
-          <img className="position-absolute top-50 start-50 translate-middle" height="290" width="360" src="/images/white twitter.png"/>
+          <img className="position-absolute top-50 start-50 translate-middle" height="290" width="360" src="/images/white twitter.png" alt=''/>
         </div>
         <div className="col px-4">
             <div className="logo">
-                <img className="twitter-logo" src="/images/twitter logo.png"/>
+                <img className="twitter-logo" src="/images/twitter logo.png" alt=''/>
             </div>
             <div className="text-white login-screen-2 fw-bolder">
                 <p>See what's happening in the world right now</p>
@@ -58,7 +85,7 @@ export default function Login() {
                 <button className="btn btn-primary btn-lg btn-block fw-bolder"><i className="fa-brands fa-google"></i>Sign up with google</button>
                 <button className="btn btn-primary btn-lg btn-block fw-bolder"><i className="fa-brands fa-apple"></i>Sign up with apple</button>
                 <p className="hr-line">or</p>
-                <button className="btn btn-primary btn-lg btn-block fw-bolder text-white">Sign up with apple</button>
+                <button className="btn btn-primary btn-lg btn-block fw-bolder text-white" onClick={()=> setRegister(!register)}>Sign up with phone number or email</button>
                 <p className="log-terms-policy">By signing up, you agree to the Terms of Service and Privacy Policy, including Cookie Use.</p>
                 <br/>
                 <br/>
@@ -68,7 +95,7 @@ export default function Login() {
             </div>
         </div>
 
-        <div className="modal" id="modal" style={visible ? {display:'block'}:null}  tabindex="-1">
+        <div className="modal" id="modal" style={visible ? {display:'block'}:null}  tabIndex="-1">
             <div className="modal-dialog modal-dialog-centered">
               <div className="modal-content">
                 <div className="modal-header">
@@ -90,6 +117,43 @@ export default function Login() {
                             <br />
                             {
                                 LogCheck ? <p>Please try again</p> : null
+                            }
+                        </form>
+                    </div>
+                </div>
+                <br/>
+              </div>
+            </div>
+    </div>
+
+
+    <div className="modal" id="modal" style={register ? {display:'block'}:null}  tabIndex="-1">
+            <div className="modal-dialog modal-dialog-centered">
+              <div className="modal-content">
+                <div className="modal-header">
+                    <i onClick={()=> setRegister(!register)} className="fa-solid fa-xmark close"></i>
+                </div>
+                <div className="modal-body">
+                    <div className="login-modal">
+                        <h1>Create account</h1>
+                        <br/>
+                        <form onSubmit={onRegister.bind(this,dispatch)}>
+                            <div className="mb-3">
+                                <input type="text" value={RegName} onChange={e=> setRegName(e.target.value)} className="pass-username" placeholder="Username"/>
+                            </div>
+                            <div className="mb-3">
+                                <input type="text" value={RegEmail} onChange={e=> setRegEmail(e.target.value)} className="pass-username" placeholder="Email"/>
+                            </div>
+                            <div>
+                                <input type="password" value={RegPass} onChange={ e=> setRegPass(e.target.value)} className="pass-username" placeholder='Password' />
+                            </div>
+                            <div className='mb-3'>
+                                <input type="date" name="" id="" className="pass-username" />
+                            </div>
+                            <button type="submit" className="btn btn-primary modal-login-button">Register</button>
+                            <br />
+                            {
+                                RegCheck ? <p>Please try again</p> : null
                             }
                         </form>
                     </div>
