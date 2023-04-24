@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="post-tweet">
+    <div class="tweet-home">
+        <span class="fw-bolder">Home</span>
+    </div>
+    <div class="tweet-body">
+        <div>
+            <img src="https://i.redd.it/oq8e1utnl0651.jpg" alt="profile" class="rounded-circle float-start" width="50px" height="50px">
+        </div>
+        <div>
+            <form>
+                <input type="text" placeholder="What's Happening?" value="">
+                <hr>
+                <div>
+                    <input class="test-input" type="file" id="image">
+                    <span><label for="image"><i class="fa-solid fa-image"></i></label></span>
+                    <span><i class="fa-solid fa-gift"></i></span>
+                    <span><i class="fa-solid fa-chart-simple"></i></span>
+                    <span><i class="fa-solid fa-face-smile"></i></span>
+                    <span><i class="fa-solid fa-calendar-days"></i></span>
+                    <span><i class="fa-solid fa-location-dot"></i></span>
+                </div>
+                <button type="submit" class="btn float-end fw-bolder tweet-button">Tweet</button>
+            </form>
+        </div>
+    </div>
+</div>
+<div>
+    @Html.Action("Twit", "Home")
+</div>
+

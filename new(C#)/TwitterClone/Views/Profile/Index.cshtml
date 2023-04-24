@@ -1,0 +1,105 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    List<TwitterClone.Models.Tweet> tweets = ViewBag.Tweets;
+}
+
+<div class="col bkgr">
+    <div class="main-header font-white">
+        <div class="row profile-layout">
+            <div class="col-1 lh-3">
+                <div class="back-arrow d-flex">
+                    <div class="mx-auto">
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-11">
+                <div class="lh-base">
+                    <h5 class="fs-5">Username</h5>
+                    <h6 class="fw-light lh-0 font-light-grey">2.220 Tweet</h6>
+                </div>
+            </div>
+        </div>
+        <div class="main-profile">
+            <div class="profile-background">
+                <img src="https://pbs.twimg.com/profile_banners/1110629292436787202/1553715768/600x200" width="100%" alt="">
+            </div>
+            <div class="position-relative">
+                <div class="position-absolute bottom-0 start-50 translate-middle-x">
+                    <div class="bg-light p-3 profile-photo profile-pos">
+                        <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" class="profile-photo-set" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="profile-about mx-4">
+                <div class="row mt-7">
+                    <div class="col-2">
+                        <h3>username</h3>
+                        <h6 class="fw-light lh-0 font-light-grey">username</h6>
+                    </div>
+                </div>
+                <div class="profile-desc mt-4">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae.</p>
+                </div>
+                <div class="profil-detail mt-1">
+                    <div class="mt-2">
+                        <div class="d-inline">
+                            <p class="d-inline fw-light lh-0 font-light-grey">Location</p>
+                        </div>
+                        <div class="d-inline">
+                            <p class="d-inline fw-light lh-0 font-light-grey">Joined</p>
+                        </div>
+                        <div class="d-inline">
+                            <p class="d-inline fw-light lh-0 font-light-grey">Birthday</p>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <div class="d-inline">
+                            <p class="d-inline">200</p>
+                            <p class="d-inline fw-light lh-0 font-light-grey">Following</p>
+                        </div>
+                        <div class="d-inline">
+                            <p class="d-inline">8</p>
+                            <p class="d-inline fw-light lh-0 font-light-grey">Followers</p>
+                        </div>
+                    </div>
+                    <div class="tablist mt-4">
+                        <div class="row text-center">
+                            <div class="col">
+                                <div class="profile-detail-borderbottom">
+                                    <h6>Tweets</h6>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div>
+                                    <h6>Comments</h6>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div>
+                                    <h6>Media</h6>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div>
+                                    <h6>Like</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main">
+        <div>
+            @Html.Action("Ptwit", "Profile", new { user = ViewBag.username })
+        </div>
+    </div>
+</div>
+
