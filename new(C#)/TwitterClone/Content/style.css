@@ -634,7 +634,7 @@
   }
   
   .login-background{
-    background-image:url(/img/twitter-log-screen.png); 
+    background-image:url(/Public/img/twitter-log-screen.png); 
     overflow: hidden; 
     background-repeat: none; 
     background-size: cover;

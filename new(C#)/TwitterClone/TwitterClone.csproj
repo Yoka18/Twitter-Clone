@@ -122,6 +122,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Context\Context.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -152,6 +153,10 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Public\img\cherryson.jpeg" />
+    <Content Include="Public\img\twitter-log-screen.png" />
+    <Content Include="Public\img\twitter-logo.png" />
+    <Content Include="Public\img\white-twitter.png" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -170,13 +175,14 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Content\style.css" />
-    <Content Include="Views\%40Frontend\img\cherryson.jpeg" />
-    <Content Include="Views\%40Frontend\img\twitter-log-screen.png" />
-    <Content Include="Views\%40Frontend\img\twitter-logo.png" />
-    <Content Include="Views\%40Frontend\img\white-twitter.png" />
-    <Content Include="Views\%40Frontend\index.html" />
-    <Content Include="Views\%40Frontend\login.html" />
-    <Content Include="Views\%40Frontend\profile.html" />
+    <Content Include="Scripts\myScript.js" />
+    <Content Include="Views\Frontend\img\cherryson.jpeg" />
+    <Content Include="Views\Frontend\img\twitter-log-screen.png" />
+    <Content Include="Views\Frontend\img\twitter-logo.png" />
+    <Content Include="Views\Frontend\img\white-twitter.png" />
+    <Content Include="Views\Frontend\index.html" />
+    <Content Include="Views\Frontend\login.html" />
+    <Content Include="Views\Frontend\profile.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -192,10 +198,11 @@
     <Content Include="Views\Home\Twit.cshtml" />
     <Content Include="Views\Profile\Ptwit.cshtml" />
     <Content Include="Views\Profile\Index.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\%40Frontend\JS\" />
+    <Folder Include="Views\Frontend\JS\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />

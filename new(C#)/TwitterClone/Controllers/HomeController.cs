@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
-using System.Security.Cryptography.X509Certificates;
 using System.Web.Mvc;
 using TwitterClone.Models;
 

@@ -1,0 +1,148 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+          integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    @Styles.Render("~/Content/style.css")
+    <script>
+
+        function modalLog() {
+            const modalDiv = document.getElementById("modal");
+            modalDiv.style.tabIndex = "2";
+            modalDiv.style.display = "block";
+            modalDiv.focus();
+        }
+        function modalReg() {
+            const modalDiv = document.getElementById("modal-reg");
+            modalDiv.style.tabIndex = "2";
+            modalDiv.style.display = "block";
+            modalDiv.focus();
+        }
+        function modalClose() {
+            const modalDiv = document.getElementById("modal");
+            const modalReg = document.getElementById("modal-reg");
+            modalDiv.style.display = "none";
+            modalReg.style.display = "none";
+        }
+
+    </script>
+</head>
+
+<body>
+    <div class="row align-items-start z-index-0">
+        <div class="col-md-7 login-background position-relative">
+            <img class="position-absolute top-50 start-50 translate-middle" height="290" width="360" src="~/Public/img/white-twitter.png" alt="">
+        </div>
+        <div class="col px-4">
+            <div class="logo">
+                <img class="twitter-logo" src="~/Public/img/twitter-logo.png" alt="">
+            </div>
+            <div class="text-white login-screen-2 fw-bolder">
+                <p>See what's happening in the world right now</p>
+            </div>
+            <div class="text-white login-screen-3 fw-bolder">
+                <p>Join Twitter today.</p>
+            </div>
+            <div class="login-screen-4">
+                <button onclick="modalReg()" class="btn btn-primary btn-lg btn-block fw-bolder"><i class="fa-brands fa-google"></i>Sign up with google</button>
+                <button onclick="modalReg()" class="btn btn-primary btn-lg btn-block fw-bolder"><i class="fa-brands fa-apple"></i>Sign up with apple</button>
+                <p class="hr-line">or</p>
+                <button onclick="modalReg()" class="btn btn-primary btn-lg btn-block fw-bolder text-white">Sign up with phone number or email</button>
+                <p class="log-terms-policy">By signing up, you agree to the Terms of Service and Privacy Policy, including Cookie Use.</p>
+                <br>
+                <br>
+                <h5 class="text-white">Already have an account?</h5>
+                <br>
+                <a class="btn btn-outline-info login-button fw-bold" onclick="modalLog()" id="login-button">Login</a>
+            </div>
+        </div>
+        <div class="modal" id="modal" tabindex="-1" style="">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header"><i onclick="modalClose()" class="fa-solid fa-xmark close"></i></div>
+                    <div class="modal-body">
+                        <div class="login-modal">
+                            <h1>Log in to Twitter</h1><br>
+                            <form>
+                                <div class="mb-3">
+                                    <input type="text" class="pass-username" placeholder="Phone, email or username " value="">
+                                </div>
+                                <div class="mb-3">
+                                    <input type="password" class="pass-username" placeholder="Password" value="">
+                                </div>
+                                <button type="submit" class="btn btn-primary modal-login-button">Login</button><br><br>
+                            </form>
+                        </div>
+                    </div><br>
+                </div>
+            </div>
+        </div>
+        <div class="modal" id="modal-reg" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <i onclick="modalClose()" class="fa-solid fa-xmark close"></i>
+                    </div>
+                    <div class="modal-body">
+                        <div class="login-modal">
+                            <h1>Create account</h1><br>
+                            <form>
+                                <div class="mb-3">
+                                    <input type="text" class="pass-username" placeholder="Username" value="">
+                                </div>
+                                <div class="mb-3">
+                                    <input type="text" class="pass-username" placeholder="Email" value="">
+                                </div>
+                                <div>
+                                    <input type="password" class="pass-username" placeholder="Password" value="">
+                                </div>
+                                <div class="mb-3">
+                                    <input type="date" name="" id="" class="pass-username">
+                                </div>
+                                <button type="submit" class="btn btn-primary modal-login-button">Register</button><br>
+                            </form>
+                        </div>
+                    </div><br>
+                </div>
+            </div>
+        </div>
+        <footer class="log-footer">
+            <ul>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Help Center</a></li>
+                <li><a href="#">Term Of Service</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Cookie Policy</a></li>
+                <li><a href="#">Imprint</a></li>
+                <li><a href="#">Accessibility</a></li>
+                <li><a href="#">Advertising Information</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Situation</a></li>
+                <li><a href="#">Career</a></li>
+                <li><a href="#">Brand Resources</a></li>
+                <li><a href="#">Advertisement</a></li>
+                <li><a href="#">Marketing</a></li>
+                <li><a href="#">Twitter For Businesses</a></li>
+                <li><a href="#">Developers</a></li>
+                <li><a href="#">Concordance</a></li>
+                <li><a href="#">Settings</a></li>
+                <li><a href="#">2022 Twitter, Inc</a></li>
+            </ul>
+        </footer>
+    </div>
+</body>
+
+</html>

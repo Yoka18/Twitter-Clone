@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
-using System.Web.Helpers;
 using System.Web.Mvc;
-using System.Web.Security;
 using TwitterClone.Models;
 
 namespace TwitterClone.Controllers
@@ -61,9 +56,6 @@ namespace TwitterClone.Controllers
             }
 
             ViewBag.Tweets = tweets;
-
-
-
 
 
             return PartialView();
