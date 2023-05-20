@@ -72,21 +72,10 @@
         <div class="modal" id="modal" tabindex="-1" style="">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
-                    <div class="modal-header"><i onclick="modalClose()" class="fa-solid fa-xmark close"></i></div>
-                    <div class="modal-body">
-                        <div class="login-modal">
-                            <h1>Log in to Twitter</h1><br>
-                            <form>
-                                <div class="mb-3">
-                                    <input type="text" class="pass-username" placeholder="Phone, email or username " value="">
-                                </div>
-                                <div class="mb-3">
-                                    <input type="password" class="pass-username" placeholder="Password" value="">
-                                </div>
-                                <button type="submit" class="btn btn-primary modal-login-button">Login</button><br><br>
-                            </form>
-                        </div>
-                    </div><br>
+                    <div class="modal-header">
+                        <i onclick="modalClose()" class="fa-solid fa-xmark close"></i>
+                    </div>
+                    @Html.Action("Login", "Login")
                 </div>
             </div>
         </div>
@@ -96,26 +85,7 @@
                     <div class="modal-header">
                         <i onclick="modalClose()" class="fa-solid fa-xmark close"></i>
                     </div>
-                    <div class="modal-body">
-                        <div class="login-modal">
-                            <h1>Create account</h1><br>
-                            <form>
-                                <div class="mb-3">
-                                    <input type="text" class="pass-username" placeholder="Username" value="">
-                                </div>
-                                <div class="mb-3">
-                                    <input type="text" class="pass-username" placeholder="Email" value="">
-                                </div>
-                                <div>
-                                    <input type="password" class="pass-username" placeholder="Password" value="">
-                                </div>
-                                <div class="mb-3">
-                                    <input type="date" name="" id="" class="pass-username">
-                                </div>
-                                <button type="submit" class="btn btn-primary modal-login-button">Register</button><br>
-                            </form>
-                        </div>
-                    </div><br>
+                    @Html.Action("Register", "Login")
                 </div>
             </div>
         </div>

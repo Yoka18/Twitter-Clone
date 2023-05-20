@@ -32,7 +32,7 @@ namespace TwitterClone.Controllers
                 while (reader.Read())
                 {
                     Tweet tweet = new Tweet();
-                    tweet.TweetId = Convert.ToInt32(reader["Key"]);
+                    tweet.TweetId = Convert.ToInt32(reader["Id"]);
                     tweet.Name = reader["Name"].ToString();
                     tweet.TweetDesc = reader["TweetDesc"].ToString();
                     tweet.Username = reader["Username"].ToString();
@@ -50,7 +50,5 @@ namespace TwitterClone.Controllers
 
             return PartialView();
         }
-
-        
     }
 }

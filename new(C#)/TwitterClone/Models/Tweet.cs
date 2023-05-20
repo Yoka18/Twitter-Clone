@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace TwitterClone.Models
 {
     public class Tweet
     {
+        [Key]
         public int TweetId { get; set; }
         public string Name { get; set; }
         public string Username { get; set; }

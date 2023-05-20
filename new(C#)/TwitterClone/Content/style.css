@@ -122,13 +122,14 @@
   }
   
   /* same time hover end */
-  
-  
-  .post-tweet{
+
+
+.post-tweet {
     color: var(--white);
     padding: 20px;
     border: 1px solid var(--grey);
-  }
+    min-width: 631px;
+}
   
   .tweet-home{
     font-size: 20px;
@@ -398,6 +399,11 @@
     position: relative;
     display: inline-block;
   }
+
+.dropdown:focus {
+    position: relative;
+    display: inline-block;
+}
   
   .dropdown-content {
     display: none;
@@ -411,26 +417,30 @@
   .dropdown:hover .dropdown-content {
     display: block;
   }
-  
-  .dropdown-content p{
+
+.dropdown-content a{
+    text-decoration: none;
+}
+
+.dropdown-content a p {
     padding: 3px;
     color: var(--white);
     transition: background-color 0.2s;
     padding: 3px;
     font-size: 17px;
-  }
+}
   
-  .dropdown-content p:nth-child(2){
+  .dropdown-content a p:nth-child(2){
     padding: 3px;
     color: var(--red);
   }
   
-  .dropdown-content p:hover{
+  .dropdown-content a p:hover{
     background-color: rgba(127, 127, 128, 0.1);
     cursor: pointer;
   }
   
-  .dropdown-content p i{
+  .dropdown-content a p i{
     margin: 5px;
   }
   
@@ -685,9 +695,13 @@
   color: var(--white);
 }
 
-.back-arrow{
-  width: 30px;
-  height: 30px;
+.back-arrow {
+    width: 30px;
+    height: 30px;
+}
+
+.back-arrow div a {
+    color: var(--white);
 }
 
 .lh-3{
@@ -763,10 +777,14 @@
   
 }
 
-.profile-detail-borderbottom{
-  margin: 0 auto;
-  display: inline-block;
-  border-bottom: 4px solid var(--blue);
+.profil-detail .mt-2 div{
+    margin-right: 10px;
+}
+
+.profile-detail-borderbottom {
+    margin: 0 auto;
+    display: inline-block;
+    border-bottom: 4px solid var(--blue);
 }
 
 .text-center .col:hover{

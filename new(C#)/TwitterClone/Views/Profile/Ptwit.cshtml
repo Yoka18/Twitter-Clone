@@ -20,11 +20,19 @@
                             <i class="fa-solid fa-circle-info"></i>
                             <div class="dropdown-content">
                                 <br>
-                                <p><i class="fa-regular fa-trash-can"></i>Delete Tweet</p>
+                                <a href="/profile/Delete?id=@tweet.TweetId&username=@tweet.Username"><p><i class="fa-regular fa-trash-can"></i>Delete Tweet</p></a>
+                                <a href="/profile/Delete?id=@tweet.TweetId&username=@tweet.Username"><p><i class="fa-regular fa-trash-can"></i>Delete Tweet</p></a>
                             </div>
                         </span>
                         <p class="card-text">@tweet.TweetDesc</p>
-                        <img src="@tweet.TweetImage" class="card-body-img rounded-1" alt="">
+                        @if (tweet.TweetImage == "asd")
+                        {
+                            <img src="" class="" style="display:none;" alt="">
+                        }
+                        else
+                        {
+                            <img src="@tweet.TweetImage" class="card-body-img rounded-1" alt="">
+                        }
                     </div>
                     <div class="interection">
                         <div class="inter d-inline p-3">

@@ -5,7 +5,7 @@
 
 @foreach (var tweet in tweets)
 {
-    <div class="twit">
+    <div href="" class="twit">
         <div class="card">
             <div class="row g-8">
                 <br>
@@ -25,7 +25,14 @@
                             </div>
                         </span>
                         <p class="card-text">@tweet.TweetDesc</p>
-                        <img src="@tweet.TweetImage" class="card-body-img rounded-1" alt="">
+                        @if (tweet.TweetImage == "asd")
+                        {
+                            <img src="" class="" style="display:none;" alt="">
+                        }
+                        else
+                        {
+                            <img src="@tweet.TweetImage" class="card-body-img rounded-1" alt="">
+                        }
                     </div>
                     <div class="interection">
                         <div class="inter d-inline p-3">

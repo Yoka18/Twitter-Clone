@@ -1,0 +1,19 @@
+﻿@model TwitterClone.Models.Login
+
+<div class="modal-body">
+    <div class="login-modal">
+        <h1>Log in to Twitter</h1><br>
+        @using (Html.BeginForm("Login", "Login", FormMethod.Post))
+        {
+            <div class="mb-3">
+                <input type="text" class="pass-username" name="Username" value="" placeholder="Phone, email or username" />
+            </div>
+
+            <div class="mb-3">
+                <input type="password" class="pass-username" name="Password" value="" placeholder="Password" />
+            </div>
+            <button type="submit" class="btn btn-primary modal-login-button">Login</button><br><br>
+
+        }
+    </div>
+</div>
