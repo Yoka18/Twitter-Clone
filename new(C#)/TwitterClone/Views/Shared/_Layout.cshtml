@@ -11,16 +11,17 @@
           integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
           crossorigin="anonymous" referrerpolicy="no-referrer" />
     @Styles.Render("~/Content/style.css")
+    
 </head>
 <body>
     
     <div class="row align-items-start">
         <!-- Left Side -->
-        <div class="col bkgr">
+        <div class="col bkgr sticky-top">
             <div class="float-end">
                 <br>
                 <div class="list-group-item list-group-item-action">
-                    <a href="#" class="a-decor">
+                    <a href="@Url.Action("Index","Home")" class="a-decor">
                         <span>
                             <i class="fa-solid fa-house fs-4"></i>
                             <h6 class="d-inline px-3 fs-4">Home</h6>
@@ -68,7 +69,7 @@
                     </a>
                 </div>
                 <div class="list-group-item list-group-item-action">
-                    <a href="#" class="a-decor">
+                    <a href="@Url.Action("Index", "Profile", new {id = (string)Session["Username"] })" class="a-decor">
                         <span>
                             <i class="fa-solid fa-user fs-4"></i>
                             <h6 class="d-inline px-3 fs-4">Profile</h6>

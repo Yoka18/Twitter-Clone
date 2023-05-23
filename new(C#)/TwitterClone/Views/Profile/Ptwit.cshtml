@@ -20,8 +20,11 @@
                             <i class="fa-solid fa-circle-info"></i>
                             <div class="dropdown-content">
                                 <br>
-                                <a href="/profile/Delete?id=@tweet.TweetId&username=@tweet.Username"><p><i class="fa-regular fa-trash-can"></i>Delete Tweet</p></a>
-                                <a href="/profile/Delete?id=@tweet.TweetId&username=@tweet.Username"><p><i class="fa-regular fa-trash-can"></i>Delete Tweet</p></a>
+                                @if (tweet.Username == (string)Session["Username"])
+                                {
+                                    <a href="/profile/Delete?id=@tweet.TweetId&username=@tweet.Username"><p><i class="fa-regular fa-trash-can"></i>Delete Tweet</p></a>
+                                }
+
                             </div>
                         </span>
                         <p class="card-text">@tweet.TweetDesc</p>

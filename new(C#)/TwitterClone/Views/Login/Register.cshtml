@@ -1,22 +1,42 @@
-﻿
+﻿@model TwitterClone.Models.Register
+
 <div class="modal-body">
     <div class="login-modal">
         <h1>Create account</h1><br>
-        <form>
+        @using (Html.BeginForm("Register", "Login", FormMethod.Post))
+        {
             <div class="mb-3">
-                <input type="text" class="pass-username" placeholder="Username" value="">
+                <input type="text" class="pass-username" name="Username" placeholder="Username" value="">
             </div>
             <div class="mb-3">
                 <input type="text" class="pass-username" placeholder="Email" value="">
             </div>
             <div>
-                <input type="password" class="pass-username" placeholder="Password" value="">
+                <input type="password" class="pass-username" name="Password" placeholder="Password" value="">
             </div>
             <div class="mb-3">
                 <input type="date" name="" id="" class="pass-username">
             </div>
             <button type="submit" class="btn btn-primary modal-login-button">Register</button><br>
-        </form>
+        }
+
+        @if (ViewBag.existedUser == null)
+        {
+
+        }
+        else
+        {
+            <h3>Kullanıcı zaten var</h3>
+        }
+        @if (ViewBag.error == null)
+        {
+        }
+        else
+        {
+            <h3>@ViewBag.error</h3>
+        }
+
+
     </div>
 </div>
 <br>

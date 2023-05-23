@@ -14,10 +14,10 @@ namespace TwitterClone.Controllers
         //indexden sonra yazılan yazı id olarak dönüyor
         public ActionResult Index(string id)
         {
-            //if (id == null)
-            //{
-            //    id = "inmisin";
-            //}
+            if (id == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             // test amaçlı kullanıcı ismi uyuşmasına göre tweetleri gelmesini istiyorum
             ViewBag.username = id;
 

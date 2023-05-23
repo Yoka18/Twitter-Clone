@@ -8,20 +8,74 @@ using System.Web;
 using System.Web.ModelBinding;
 using System.Web.Mvc;
 using System.Web.Security;
-using TwitterClone.Models;
+using System.Web.UI.WebControls;
+using Register = TwitterClone.Models.Register;
+using Login = TwitterClone.Models.Login;
 
 namespace TwitterClone.Controllers
 {
     public class LoginController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Index(string id)
         {
             return View();
         }
 
+        [HttpGet]
         public PartialViewResult Register()
         {
             return PartialView();
+        }
+
+        [HttpPost]
+        public PartialViewResult Register(Register R)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["localhost"].ConnectionString;
+
+            string sqlCheckQuery = "SELECT COUNT(*) FROM login WHERE username = @username";
+            string sqlInsertQuery = "INSERT INTO login (username, password) VALUES (@username, @password)";
+
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+
+                // Önce kullanıcı adının mevcut olup olmadığının kontrolü
+                using (SqlCommand checkCommand = new SqlCommand(sqlCheckQuery, con))
+                {
+                    checkCommand.Parameters.AddWithValue("@username", R.Username);
+
+                    int existingUserCount = (int)checkCommand.ExecuteScalar();
+
+                    if (existingUserCount > 0)
+                    {
+                        ViewBag.existedUser = "Kullanıcı mevcut";
+                        return PartialView();
+                    }
+                    else
+                    {
+                        using (SqlCommand insertCommand = new SqlCommand(sqlInsertQuery, con))
+                        {
+                            insertCommand.Parameters.AddWithValue("@username", R.Username);
+                            insertCommand.Parameters.AddWithValue("@password", R.Password);
+
+                            int affectedRows = insertCommand.ExecuteNonQuery();
+
+                            if (affectedRows > 0)
+                            {
+                                ViewBag.error = "Kullanıcı işlemi başarılı";
+                                return PartialView();
+                            }
+                            else
+                            {
+                                ViewBag.error = "Bir hata oluştu sonra tekrar deneyin";
+                                return PartialView();
+                            }
+                        }
+                    }
+                }
+
+            }
         }
 
         [HttpGet]
@@ -56,7 +110,7 @@ namespace TwitterClone.Controllers
                             FormsAuthentication.SetAuthCookie(L.Username, false);
                             Session["Username"] = L.Username;
                             // verinin yazıldığı şekilde girilmesini istiyorsam new{} şeklinde yazmalısın
-                            return RedirectToAction("Index", "Profile", new { id = L.Username });
+                            return RedirectToAction("Index", "Home");
                         }
                         else
                         {

@@ -129,6 +129,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Login.cs" />
+    <Compile Include="Models\Register.cs" />
     <Compile Include="Models\SQLCommands.cs" />
     <Compile Include="Models\Tweet.cs" />
     <Compile Include="Models\UserInfo.cs" />
