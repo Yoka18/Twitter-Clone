@@ -5,7 +5,7 @@
 
 @foreach (var tweet in tweets)
 {
-    <div href="" class="twit">
+    <div onclick="location.href='@Url.Action("P", "T", new { id = tweet.TweetId })'" class="twit">
         <div class="card">
             <div class="row g-8">
                 <br>
@@ -21,10 +21,19 @@
                             <i class="fa-solid fa-circle-info"></i>
                             <div class="dropdown-content">
                                 <br>
-                                @if (tweet.Username == (string)Session["Username"])
+                                @if ((string)Session["Username"] == null)
                                 {
-                                    <a href="/home/Delete?id=@tweet.TweetId&username=@tweet.Username"><p><i class="fa-regular fa-trash-can"></i>Delete Tweet</p></a>
+
                                 }
+                                else if (tweet.Username == (string)Session["Username"])
+                                {
+                                    <a href="/home/Delete?id=@tweet.TweetId&username=@tweet.Username"><p class="font-red"><i class="fa-regular fa-trash-can"></i>Delete Tweet</p></a>
+                                }
+                                else
+                                {
+                                    <a href="/home/BlockUser?id=@tweet.TweetId&bannedUser=@tweet.Username"><p><i class="fa-regular fa-trash-can"></i>Block User</p></a>
+                                }
+
 
                             </div>
                         </span>

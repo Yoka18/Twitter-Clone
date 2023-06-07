@@ -1,0 +1,77 @@
+﻿@model TwitterClone.Models.UserInfo
+@{
+    List<TwitterClone.Models.UserInfo> users = ViewBag.users;
+}
+}
+
+<script>
+    function autoResize(textarea) {
+        textarea.style.height = '50' + 'px';
+        textarea.style.height = textarea.scrollHeight + 'px';
+    }
+</script>
+
+
+@foreach (var user in users)
+{
+    <div class="modal edit-modal-back" id="modal" style="display: none;">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-witdh">
+            @using (Html.BeginForm("EditProfile", "Profile", FormMethod.Post, new { @style = "width:600px", enctype = "multipart/form-data" }))
+            {
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <i onclick="modalClose()" class="fa-solid fa-xmark close"></i>
+                        <p class="mt-3">Profile Edit</p>
+                        <button type="submit" class="btn btn-edit-modal fw-bolder">Save</button>
+                    </div>
+                    <div class="modal-body modal-body-pad">
+                        <div class="mx-1">
+                            <div class="login-modal">
+                                <img src="/@user.UserBackground" class="userBackground" height="200px" width="100%" alt="">
+                                <label class="backgroundchange" for="background"><i class="fa-solid fa-camera-rotate"></i></label>
+                                <input type="file" name="background" style="display: none;" id="background">
+
+                                <div class="position-relative">
+                                    <div class="position-absolute bottom-0 start-50 translate-middle-x">
+                                        <div class="bg-light p-3 profile-photo-modal profile-pos-modal">
+                                            <img src="/@user.UserImage" class="profile-photo-set" alt="">
+                                            <label class="imagechange" for="image"><i class="fa-solid fa-camera-rotate"></i></label>
+                                            <input type="file" name="file" style="display: none;" id="image">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-7">
+                                    <input style="display: none;" name="UserInfoId" value="@user.UserInfoId"  />
+                                    <div class="mb-3 w-100">
+                                        <input type="text" name="Name" class="pass-username-modal w-100" placeholder="Name" value="@user.Name">
+                                    </div>
+                                    <div class="mb-3 w-100">
+                                        <textarea type="text" name="UserDesc" oninput="autoResize(this)" class="edit-area pass-username-modal w-100" placeholder="Description">@user.UserDesc</textarea>
+                                    </div>
+                                    <div class="mb-3 w-100">
+                                        <input type="text" name="Location" class="pass-username-modal w-100" placeholder="Country" value="@user.Location">
+                                    </div>
+                                    <div class="mb-3 w-100">
+                                        <input type="text" class="pass-username-modal w-100" placeholder="WebSite" value="">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div><br>
+                </div>
+            }
+        </div>
+    </div>
+}
+
+
+
+
+<script>
+
+    function modalClose() {
+        const modalDiv = document.getElementById("modal");
+        modalDiv.style.display = "none";
+    }
+</script>

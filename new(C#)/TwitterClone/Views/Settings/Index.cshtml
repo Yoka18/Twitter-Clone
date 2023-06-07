@@ -1,0 +1,243 @@
+﻿
+@{
+    Layout = null;
+    string actionUrl = Url.Action("EditUsername", "Settings", new { userinfoid = ViewBag.user.UserInfoId, loginid = ViewBag.login.LoginId, tweetid = ViewBag.Id });
+    string actionUrl2 = Url.Action("EditEmail", "Settings", new { userinfoid = ViewBag.user.UserInfoId, loginid = ViewBag.login.LoginId });
+    string actionUrl3 = Url.Action("EditPassword", "Settings", new { loginid = ViewBag.login.LoginId });
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+          integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    @Styles.Render("~/Content/style.css")
+</head>
+<body>
+    <div class="row align-items-start">
+        <!-- Left Side -->
+        <div class="col-4 bkgr">
+            <div class="float-end">
+                <br>
+                <div class="list-group-item list-group-item-action">
+                    <a href="#" class="a-decor">
+                        <span>
+                            <i class="fa-solid fa-house fs-4"></i>
+                            <h6 class="d-inline px-3 fs-4">Home</h6>
+                        </span>
+                    </a>
+                </div>
+                <div class="list-group-item list-group-item-action">
+                    <a href="#" class="a-decor">
+                        <span>
+                            <i class="fa-solid fa-hashtag fs-4"></i>
+                            <h6 class="d-inline px-3 fs-4">Explore</h6>
+                        </span>
+                    </a>
+                </div>
+                <div class="list-group-item list-group-item-action">
+                    <a href="#" class="a-decor">
+                        <span>
+                            <i class="fa-solid fa-bell fs-4"></i>
+                            <h6 class="d-inline px-3 fs-4">Notifications</h6>
+                        </span>
+                    </a>
+                </div>
+                <div class="list-group-item list-group-item-action">
+                    <a href="#" class="a-decor">
+                        <span>
+                            <i class="fa-solid fa-envelope fs-4"></i>
+                            <h6 class="d-inline px-3 fs-4">Messages</h6>
+                        </span>
+                    </a>
+                </div>
+                <div class="list-group-item list-group-item-action">
+                    <a href="#" class="a-decor">
+                        <span>
+                            <i class="fa-solid fa-bookmark fs-4"></i>
+                            <h6 class="d-inline px-3 fs-4">Bookmarks</h6>
+                        </span>
+                    </a>
+                </div>
+                <div class="list-group-item list-group-item-action">
+                    <a href="#" class="a-decor">
+                        <span>
+                            <i class="fa-solid fa-table-list fs-4"></i>
+                            <h6 class="d-inline px-3 fs-4">Lists</h6>
+                        </span>
+                    </a>
+                </div>
+                <div class="list-group-item list-group-item-action">
+                    <a href="#" class="a-decor">
+                        <span>
+                            <i class="fa-solid fa-user fs-4"></i>
+                            <h6 class="d-inline px-3 fs-4">Profile</h6>
+                        </span>
+                    </a>
+                </div>
+                <div class="list-group-item list-group-item-action">
+                    <a href="#" class="a-decor">
+                        <span>
+                            <i class="fa-solid fa-circle-info fs-4"></i>
+                            <h6 class="d-inline px-3 fs-4">More</h6>
+                        </span>
+                    </a>
+                </div>
+                <br>
+                <a href="#" class="list-group-item btn-info twit-btn btn">Tweet</a>
+                <br>
+            </div>
+        </div>
+        <div class="col-2 bkgr">
+            <div class="m-2 font-white">
+                <h4>Settings</h4>
+            </div>
+            <div>
+                <div class="list-group set-listgroup">
+                    <li class="list-group-item set-list list-group-item-action set-list-activated">Your Account <i class="fa-solid float-end mt-1 fa-angle-right"></i></li>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-3 bkgr" style="padding-left: 0px;">
+
+            <div class="m-2 font-white" id="yAcco1">
+                <h4>Your Account</h4>
+            </div>
+            <div id="yAcco2">
+                <div class="list-group set-listgroup">
+                    <li onclick="OpenAccoInfo()" class="list-group-item set-list list-group-item-action"><i class="set-list-icon fa-regular fa-user"></i> Account information <i class="fa-solid float-end fa-angle-right set-list-right"></i></li>
+                    <li onclick="OpanPassword()" class="list-group-item set-list list-group-item-action"><i class="set-list-icon fa-solid fa-key"></i>Change Password <i class="fa-solid float-end fa-angle-right set-list-right"></i></li>
+                </div>
+            </div>
+            <!-- account info içeriği -->
+            <div class="m-2 font-white" style="display:none" id="accoInfo1">
+                <i onclick="OpenyAcco()" class="fa-solid fa-arrow-left float-start"></i>
+                <h4>Account Info</h4>
+            </div>
+            <div style="display:none" id="accoInfo2">
+                <div>
+                    <div class="list-group set-listgroup">
+                        <li onclick="OpenUsername()" class="list-group-item set-list list-group-item-action">Username<i class="fa-solid float-end mt-1 fa-angle-right"></i></li>
+                        <li onclick="OpanEmail()" class="list-group-item set-list list-group-item-action">Email<i class="fa-solid float-end mt-1 fa-angle-right"></i></li>
+                    </div>
+                </div>
+            </div>
+            <!-- Username içeriği -->
+            <div class="m-2 font-white" style="display:none" id="username1">
+                <a class="font-white m" onclick="OpenAccoInfo()" href="#"><i class="fa-solid fa-arrow-left float-start"></i></a>
+                <h4>Username</h4>
+            </div>
+            <form action="@actionUrl" method="post">
+                <h1>@ViewBag.Id</h1>
+                <div class="mx-3" style="display:none" id="username2">
+                    <div>
+                        <input type="text" name="Username" class="pass-username-modal w-100" placeholder="Username" value="@ViewBag.user.Username">
+                    </div>
+                    <button type="submit" class="btn tweet-button float-end mt-4">Save</button>
+                </div>
+            </form>
+            <!-- Password içeriği -->
+            <div class="m-2 font-white" style="display:none" id="password1">
+                <a class="font-white m" onclick="OpenyAcco()" href="#"><i class="fa-solid fa-arrow-left float-start"></i></a>
+                <h4>Change Password</h4>
+            </div>
+            <form action="@actionUrl3" method="post">
+                <input style="display:none;" value="@ViewBag.Id" />
+
+                <div class="mx-3" style="display:none" id="password2">
+                    <div class="mb-2">
+                        <input type="password" name="CurrentPass" class="pass-username-modal w-100" placeholder="Current Password" value="">
+                    </div>
+                    <div>
+                        <input type="password" name="Password" class="pass-username-modal w-100" placeholder="New Password" value="">
+                    </div>
+                    <button type="submit" class="btn tweet-button float-end mt-4">Save</button>
+                </div>
+            </form>
+            <!-- Email içeriği -->
+            <div class="m-2 font-white" style="display:none" id="email1">
+                <a class="font-white m" onclick="OpenAccoInfo()" href="#"><i class="fa-solid fa-arrow-left float-start"></i></a>
+                <h4>Change Email</h4>
+            </div>
+            <form action="@actionUrl2" method="post">
+                <input style="display:none;" value="@ViewBag.Id" />
+
+                <div class="mx-3" style="display:none" id="email2">
+                    <div>
+                        <input type="text" name="Email" class="pass-username-modal w-100" placeholder="Email" value="@ViewBag.user.Email">
+                    </div>
+                    <button type="submit" class="btn tweet-button float-end mt-4">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        var yAcco1 = document.getElementById("yAcco1");
+        var yAcco2 = document.getElementById("yAcco2");
+        var accoInfo1 = document.getElementById("accoInfo1");
+        var accoInfo2 = document.getElementById("accoInfo2");
+        var username1 = document.getElementById("username1");
+        var username2 = document.getElementById("username2");
+        var password1 = document.getElementById("password1");
+        var password2 = document.getElementById("password2");
+        function OpenAccoInfo() {
+            accoInfo2.style.display = "block";
+            accoInfo1.style.display = "block";
+            yAcco2.style.display = "none";
+            yAcco1.style.display = "none";
+            username2.style.display = "none";
+            username1.style.display = "none";
+            password2.style.display = "none";
+            password1.style.display = "none";
+            email2.style.display = "none";
+            email1.style.display = "none";
+        }
+        function OpenUsername() {
+            username2.style.display = "block";
+            username1.style.display = "block";
+            accoInfo2.style.display = "none";
+            accoInfo1.style.display = "none";
+            yAcco2.style.display = "none";
+            yAcco1.style.display = "none";
+        }
+        function OpanPassword() {
+            password2.style.display = "block";
+            password1.style.display = "block";
+            accoInfo2.style.display = "none";
+            accoInfo1.style.display = "none";
+            yAcco2.style.display = "none";
+            yAcco1.style.display = "none";
+            username2.style.display = "none";
+            username1.style.display = "none";
+        }
+        function OpenyAcco() {
+            yAcco2.style.display = "block";
+            yAcco1.style.display = "block";
+            accoInfo2.style.display = "none";
+            accoInfo1.style.display = "none";
+            username2.style.display = "none";
+            username1.style.display = "none";
+            password2.style.display = "none";
+            password1.style.display = "none";
+        }
+        function OpanEmail() {
+            email2.style.display = "block";
+            email1.style.display = "block";
+            accoInfo2.style.display = "none";
+            accoInfo1.style.display = "none";
+            yAcco2.style.display = "none";
+            yAcco1.style.display = "none";
+        }
+    </script>
+</body>
+</html>

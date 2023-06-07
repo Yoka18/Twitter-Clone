@@ -16,5 +16,7 @@ namespace TwitterClone.Models
         public int Followers { get; set; }
         public string Joined { get; set; }
         public string Location { get; set; }
+        public string UserBackground { get; set; }
+
     }
 }

@@ -1,8 +1,151 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "P";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
+    List<TwitterClone.Models.Tweet> tweet = ViewBag.Tweet;
+    string actionUrl = Url.Action("PostComment", "T", new { tweetId = ViewBag.twtId });
 }
 
-<h2>P</h2>
+<script>
+    function autoResize(textarea) {
+        textarea.style.height = '50' + 'px';
+        textarea.style.height = textarea.scrollHeight + 'px';
+    }
+</script>
+
+    <div class="main-header font-white">
+        <div class="row tweet-layout">
+            <div class="col-1 lh-3">
+                <div class="back-arrow d-flex">
+                    <div class="mx-auto">
+                        @if (ViewBag.test == "test")
+                        {
+                            <a href="@Url.Action("Index", "Profile", new { id = (string)Session["Username"] })"><i class="fa-solid fa-arrow-left"></i></a>
+                        }
+                        else
+                        {
+                            <a href="@Url.Action("Index", "Home")"><i class="fa-solid fa-arrow-left"></i></a>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="col-11">
+                <div class="lh-base">
+                    <h5 class="fs-5">@ViewBag.twtId</h5>
+                    <h6 class="fw-light lh-0 font-light-grey">2.220 Tweet</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<div class="main">
+    <div class="main-tweet">
+        @foreach (var t in tweet)
+        {
+            <div class="tweet-header">
+                <div class="tweet-owner-photo d-inline-block lh-2">
+                    <img src="https://i.redd.it/oq8e1utnl0651.jpg" alt="">
+                </div>
+                <div class="tweet-detail d-inline-block lh-2">
+                    <h5 class="fw-bolder">@t.Name</h5>
+                    <h6 class="fw-light font-light-grey lh-0">@t.Username</h6>
+                </div>
+                <div class="tweet-dtl-right d-inline-block float-end lh-2">
+                    <i class="fa-solid fa-ellipsis"></i>
+                </div>
+            </div>
+            <div class="tweet-main">
+                <p>
+                    @t.TweetDesc
+                </p>
+                @if (t.TweetImage == "asd")
+                {
+
+                }
+                else
+                {
+                    <img src="/@t.TweetImage" class="rounded-4" width="100%" height="564"
+                         alt="">
+                }
+            </div>
+            <div class="tweet-bottom">
+                <div class="tweet-btm-date">
+                    <h6 class="fw-light font-light-grey d-inline-block">ÖÖ 9:50</h6>
+                    <h6 class="fw-light font-light-grey d-inline-block">9 May 2023</h6>
+                    <h6 class="fw-light font-light-grey d-inline-block">333 B Görüntülenme</h6>
+                </div>
+                <hr>
+                <div class="tweet-btm-faw font-light-grey row">
+                    <div class="col-3">
+                        <p class="d-inline-block font-white">@t.TweetRetweet</p>
+                        <p class="d-inline-block">Retweet</p>
+                    </div>
+                    <div class="col-3">
+                        <p class="d-inline-block font-white">100</p>
+                        <p class="d-inline-block">Alıntı</p>
+                    </div>
+                    <div class="col-3">
+                        <p class="d-inline-block font-white">@t.TweetLikes</p>
+                        <p class="d-inline-block">Beğeni</p>
+                    </div>
+                    <div class="col-3">
+                        <p class="d-inline-block font-white">100</p>
+                        <p class="d-inline-block">Yer İşareti</p>
+                    </div>
+                </div>
+                <hr>
+                <div class="tweet-btm-fawbutton font-light-grey row">
+                    <div class="col">
+                        <div>
+                            <i class="fa-regular fa-comment"></i>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div>
+                            <i class="fa-solid fa-retweet"></i>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div>
+                            <i class="fa-regular fa-heart"></i>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div>
+                            <i class="fa-regular fa-bookmark"></i>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div>
+                            <i class="fa-solid fa-upload"></i>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+            </div>
+        }
+        <div class="tweet-comments">
+            <div class="row">
+                <div class="col-2">
+                    <img src="https://i.redd.it/oq8e1utnl0651.jpg" height="50px" width="50px" alt="">
+                </div>
+
+            <form action="@actionUrl" method="post" enctype="multipart/form-data">
+                <div class="col tweet-com-area">
+                    <textarea class="comment-area" name="TweetDesc" oninput="autoResize(this)" placeholder="Tweet"></textarea>
+                    <div>
+                        <input class="test-input" name="file" type="file" id="image">
+                        <span><label for="image"><i class="fa-solid fa-image"></i></label></span>
+                    </div>
+
+                    <button type="submit" class="btn float-end fw-bolder tweet-button">Tweet</button>
+                </div>
+            </form>
+
+            </div>
+            @Html.Action("Comment", "T", new { id = ViewBag.twtId })
+        </div>
+    </div>
+</div>
 

@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    List<TwitterClone.Models.Tweet> tweet = ViewBag.tweets;
+    string actionUrl = Url.Action("PostEdit", "T", new { tweetId = ViewBag.twtId });
+
+}
+
+<script>
+    function autoResize(textarea) {
+        textarea.style.height = '50' + 'px';
+        textarea.style.height = textarea.scrollHeight + 'px';
+    }
+</script>
+
+<div class="main-header font-white">
+    <div class="row tweet-layout">
+        <div class="col-1 lh-3">
+            <div class="back-arrow d-flex">
+                <div class="mx-auto">
+                    <a href="@Url.Action("P", "T", new { id = ViewBag.twtId })"><i class="fa-solid fa-arrow-left"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-11">
+            <div class="lh-base">
+                <h5 class="fs-5">@ViewBag.twtId</h5>
+                <h6 class="fw-light lh-0 font-light-grey">2.220 Tweet</h6>
+            </div>
+        </div>
+    </div>
+</div>
+
+@foreach (var t in tweet)
+{
+    <div class="main">
+        <form action="@actionUrl" method="post" enctype="multipart/form-data">
+            <div class="main-tweet">
+                <div class="tweet-header">
+                    <div class="tweet-owner-photo d-inline-block lh-2">
+                        <img src="https://i.redd.it/oq8e1utnl0651.jpg" alt="">
+                    </div>
+                    <div class="tweet-detail d-inline-block lh-2">
+                        <h5 class="fw-bolder">@t.Name</h5>
+                        <h6 class="fw-light font-light-grey lh-0">@t.Username</h6>
+                    </div>
+                    <div class="tweet-dtl-right d-inline-block float-end lh-2">
+                        <i class="fa-solid fa-ellipsis"></i>
+                    </div>
+                </div>
+                <div class="tweet-main">
+                    <textarea class="comment-area editing" oninput="autoResize(this)" name="TweetDesc" placeholder="">@t.TweetDesc</textarea>
+                    <input class="test-input" name="file" type="file" id="image">
+                    <span class="editing-hover"><label for="image"><img src="/@t.TweetImage" class="rounded-4" width="100%" height="564" alt=""></label></span>
+                    <button type="submit" class="btn-info twit-btn btn editing-button">Düzenle</button>
+                </div>
+
+            </div>
+        </form>
+    </div>
+}
+

@@ -1,0 +1,62 @@
+﻿@{
+    List<TwitterClone.Models.Tweet> tweets = ViewBag.Tweets;
+}
+
+@foreach (var twt in tweets)
+{
+    <div onclick="location.href='@Url.Action("P", "T", new { id = twt.TweetId })'" class="tweet-comment">
+        <div class="row g-8">
+            <br>
+            <div class="col-auto"><img src="https://i.redd.it/oq8e1utnl0651.jpg" class="border-rad" alt="..."></div>
+            <div class="col">
+                <div class="card-body">
+                    <span class="card-title fw-bold">
+                        <a class="card-title" href="#">@twt.Name</a>
+                    </span>
+                    <span class="card-subtitle mb-2 font-light-grey">\@twt.Username</span>
+                    <span class="card-subtitle mb-2 font-light-grey"> 0:18h</span>
+                    <span class="float-end post-info dropdown">
+                        <i class="fa-solid fa-circle-info"></i>
+                        <div class="dropdown-content">
+                            <br>
+                            @if ((string)Session["Username"] == null)
+                            {
+
+                            }
+                            else if (twt.Username == (string)Session["Username"])
+                            {
+                                <a href="/home/Delete?id=@twt.TweetId&username=@twt.Username"><p><i class="fa-regular fa-trash-can"></i>Delete Tweet</p></a>
+                            }
+                            else
+                            {
+                                <a href="/home/BlockUser?id=@twt.TweetId&bannedUser=@twt.Username"><p><i class="fa-regular fa-trash-can"></i>Block User</p></a>
+                            }
+                        </div>
+                    </span>
+                    <p class="card-text">@twt.TweetDesc</p>
+                    <img src="/@twt.TweetImage" class="card-img-bottom rounded-1" alt="">
+                </div>
+                <div class="interection">
+                    <div class="inter d-inline p-3">
+                        <span class="icon"><i class="fa-regular fa-comment"></i></span>
+                        <span class="cul">@twt.TweetComments</span>
+                    </div>
+                    <div class="inter d-inline p-3">
+                        <span class="icon"><i class="fa-solid fa-retweet"></i></span>
+                        <span class="cul">@twt.TweetRetweet</span>
+                    </div>
+                    <div class="inter d-inline p-3">
+                        <span class="icon"><i class="fa-regular fa-heart"></i></span>
+                        <span class="cul">@twt.TweetLikes</span>
+                    </div>
+                    <div class="inter d-inline p-3">
+                        <span class="icon"><i class="fa-solid fa-arrow-up-from-bracket"></i></span>
+                        <span class="cul">@twt.TweetShare</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+}
+

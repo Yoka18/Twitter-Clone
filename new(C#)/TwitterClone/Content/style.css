@@ -19,8 +19,8 @@
     background-color: var(--black);
   }
   .bkgr:nth-child(2){
-    border-left: 1px solid var(--black);
-    border-right: 1px solid var(--black);
+    border-left: 1px solid var(--grey);
+    border-right: 1px solid var(--grey);
     padding: 0px;
     margin: 0px;
   }
@@ -756,13 +756,14 @@
   left: -300px;
 }
 
-.profile-photo-set{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+.profile-photo-set {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    object-fit: cover;
 }
 
 .mt-6{
@@ -789,4 +790,335 @@
 
 .text-center .col:hover{
   background-color: rgba(255, 255, 255, 0.1);
+}
+
+
+
+.tweet-layout {
+    padding: 5px;
+    /* border-left: solid 1px var(--grey);
+  border-right: solid 1px var(--grey); */
+    margin: 0 0 0 0;
+}
+
+.main-tweet {
+    width: 100%;
+    min-width: 631px;
+    background-color: var(--black);
+    /* border-left: 1px solid var(--grey);
+  border-right: 1px solid var(--grey); */
+}
+
+.tweet-header {
+    padding: 10px 10px 0 10px;
+}
+
+.tweet-owner-photo {
+    display: inline-block;
+    vertical-align: top;
+}
+
+    .tweet-owner-photo img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 2px solid var(--black);
+    }
+
+.tweet-detail {
+    margin-left: 5px;
+}
+
+.tweet-dtl-right {
+    display: inline-block;
+    margin: 15px 15px 15px 0;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    border-radius: 50%;
+}
+
+    .tweet-dtl-right i {
+        margin-top: 7px;
+        float: center;
+    }
+
+
+    .tweet-dtl-right:hover {
+        background-color: var(--hover-blue);
+        color: var(--blue);
+        cursor: pointer;
+        transition: background-color ease-in-out 0.2s;
+    }
+
+.tweet-main {
+    padding: 5px 15px 0 10px;
+    font-size: 17px;
+}
+
+.tweet-bottom {
+    padding: 20px 15px 0 10px;
+}
+
+.tweet-btm-date h6 {
+    margin-left: 5px;
+}
+
+.tweet-btm-faw {
+    margin: 0 auto;
+}
+
+    .tweet-btm-faw .col p {
+        margin: 5px 0 5px 0;
+    }
+
+.tweet-btm-fawbutton {
+    margin: 0 auto;
+    text-align: center;
+}
+
+    .tweet-btm-fawbutton .col div {
+        width: 40px;
+        height: 40px;
+        background-color: transparent;
+        text-align: center;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+        .tweet-btm-fawbutton .col div i {
+            margin-top: 12px;
+            float: center;
+        }
+
+        .tweet-btm-fawbutton .col div:hover {
+            background-color: rgb(29,161,242,0.2);
+            color: var(--blue);
+            transition: ease-in-out 0.2s;
+        }
+
+    .tweet-btm-fawbutton .col:nth-child(2) div:hover {
+        background-color: rgb(32, 216, 87,0.2);
+        color: var(--green);
+        transition: ease-in-out 0.2s;
+    }
+
+    .tweet-btm-fawbutton .col:nth-child(3) div:hover {
+        background-color: rgba(216, 32, 32, 0.2);
+        color: var(--red);
+        transition: ease-in-out 0.2s;
+    }
+
+.tweet-comments {
+    padding: 10px 15px 0 10px;
+}
+
+    .tweet-comments img {
+        border-radius: 50%;
+    }
+
+    .tweet-comments .row .col-2 {
+        width: 11%;
+        padding-right: 0;
+    }
+
+    .tweet-comments .row {
+        border-bottom: solid 1px var(--grey);
+    }
+
+.comment-area {
+    overflow: hidden;
+    resize: none;
+    font-size: 22px;
+    padding: 7px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: var(--white);
+    width: 80%;
+    height: 50px;
+}
+
+.tweet-com-area {
+    align-items: center;
+}
+
+    .tweet-com-area button {
+        margin-top: 10px;
+    }
+
+.tweet-comment {
+    padding: 10px 15px 0 10px;
+}
+
+.tweet-comment div .tweet-owner-photo {
+    height: 100%;
+}
+
+.font-red {
+    color: var(--red) !important;
+}
+
+.editing {
+    width: 100%;
+    box-shadow: 1px 1px 10px 1px rgba(25, 84, 124, 0.8);
+}
+
+.editing-hover:hover {
+    opacity: 0.9;
+}
+
+.editing-button {
+    float: right;
+    margin: 10px;
+}
+
+.btn-edit {
+    color: var(--white);
+    background-color: transparent;
+    border: 1px solid var(--white);
+    padding-left: 10px;
+    padding-right: 10px;
+    width: auto;
+    border-radius: 50px;
+}
+
+.btn-edit:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--white);
+}
+
+.end--310{
+    right: -310px;
+}
+
+
+.modal-body-pad {
+    padding: 0px;
+}
+
+.edit-modal {
+    text-align: center;
+}
+
+.modal-dialog-witdh {
+    max-width: 600px;
+}
+
+.btn-edit-modal {
+    color: var(--black);
+    background-color: var(--white);
+    border: 1px solid var(--white);
+    padding-left: 10px;
+    padding-right: 10px;
+    width: auto;
+    border-radius: 50px;
+}
+
+    .btn-edit-modal:hover {
+        background-color: rgba(255, 255, 255, 0.9);
+        border: 1px solid var(--white);
+        color: black;
+    }
+
+.profile-photo-modal {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid var(--black);
+    overflow: hidden;
+}
+
+.profile-pos-modal {
+    position: absolute;
+    top: -75px;
+    left: -280px;
+}
+
+.pass-username-modal {
+    width: 60%;
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid var(--white);
+    outline: none;
+    border-radius: 5px;
+    background-color: transparent;
+    color: white;
+}
+
+    .pass-username-modal:focus {
+        border: 1px solid var(--blue);
+    }
+
+.imagechange {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 6px 8px 6px 8px;
+    border-radius: 50px;
+    cursor: pointer;
+    position: absolute;
+    top: 40px;
+    left: 38px;
+}
+
+.backgroundchange {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 6px 8px 6px 8px;
+    border-radius: 50px;
+    cursor: pointer;
+    position: absolute;
+    top: 60px;
+    left: 238px;
+}
+
+.edit-modal-back {
+    background-color: rgba(91, 112, 131, 0.4);
+}
+
+.edit-area {
+    overflow: hidden;
+    resize: none;
+    font-size: 22px;
+    padding: 7px;
+    background-color: transparent;
+    outline: none;
+    color: var(--white);
+    width: 80%;
+    height: 50px;
+}
+
+.userBackground {
+    overflow: hidden;
+    object-fit: cover
+}
+
+
+.set-listgroup {
+    border-radius: 0px;
+}
+
+.set-list {
+    padding: 10px;
+    border-radius: 0px;
+    background-color: transparent;
+    color: var(--white);
+    border: none;
+    cursor: pointer;
+}
+
+    .set-list:hover {
+        background-color: rgb(22, 24, 28);
+        color: var(--white);
+    }
+
+.set-list-activated {
+    border-right: 2px solid var(--blue);
+    background-color: rgb(22, 24, 28);
+}
+
+.set-list-icon {
+    margin: 10px;
+}
+
+.set-list-right {
+    margin-top: 10px;
 }

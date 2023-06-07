@@ -7,13 +7,14 @@
 
 @if (ViewBag.user != null)
 {
+    @Html.Action("EditProfile","Profile", new { id = ViewBag.username })
     <div class="col bkgr">
         <div class="main-header font-white">
             <div class="row profile-layout">
                 <div class="col-1 lh-3">
                     <div class="back-arrow d-flex">
                         <div class="mx-auto">
-                            <a href="/Home/Index"><i class="fa-solid fa-arrow-left"></i></a>
+                            <a href="@Url.Action("Index", "Home")"><i class="fa-solid fa-arrow-left"></i></a>
                         </div>
                     </div>
                 </div>
@@ -26,18 +27,24 @@
             </div>
             <div class="main-profile">
                 <div class="profile-background">
-                    <img src="https://pbs.twimg.com/profile_banners/1110629292436787202/1553715768/600x200" width="100%" alt="">
+                    <img src="/@ViewBag.user.UserBackground" class="userBackground" height="200px" width="100%" alt="">
                 </div>
                 <div class="position-relative">
                     <div class="position-absolute bottom-0 start-50 translate-middle-x">
                         <div class="bg-light p-3 profile-photo profile-pos">
                             @if (ViewBag.user.UserImage != "asd")
                             {
-                                <img src="@ViewBag.user.UserImage" width="100%" alt="">
+                                <img src="/@ViewBag.user.UserImage" class="profile-photo-set" width="100%" alt="">
                             }
                             else
                             {
                                 <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" class="profile-photo-set" alt="">
+                            }
+                        </div>
+                        <div class="position-absolute float-end m-3 end--310">
+                            @if (ViewBag.username == (string)Session["Username"])
+                            {
+                                <button onclick="modalLog()" class="btn btn-edit fw-bolder">Edit Profile</button>
                             }
                         </div>
                     </div>
@@ -50,7 +57,7 @@
                         </div>
                     </div>
                     <div class="profile-desc mt-4">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae.</p>
+                        <p>@ViewBag.user.UserDesc</p>
                     </div>
                     <div class="profil-detail mt-1">
                         <div class="mt-2">
@@ -110,3 +117,11 @@
     </div>
 }
 
+<script>
+    function modalLog() {
+        const modalDiv = document.getElementById("modal");
+        modalDiv.style.tabIndex = "2";
+        modalDiv.style.display = "block";
+        modalDiv.focus();
+    }
+</script>
